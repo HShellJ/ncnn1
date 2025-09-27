@@ -17,7 +17,6 @@ Mat prepare_input(int x) {
 
 int main()
 {
-	cout << "Hello CMake." << endl;
 	Net net;
 
 	net.load_param("C:\\Users\\25190\\Documents\\Model\\function_fitting_model.ncnn.param");
@@ -27,15 +26,12 @@ int main()
     for (int x = 1; x <= 1000; x++) {
         // 准备1维输入
         Mat input = prepare_input(x);
-
         ncnn::Extractor ex = net.create_extractor();
         ex.input("in0", input);
-
         Mat output;
         ex.extract("out0", output);
-
         float result = output[0];
-        std::cout << "输入: " << x << ", 推理结果: " << result << std::endl;
+        cout << "输入: " << x << ", 推理结果: " << result << endl;
     }
 
 	return 0;
