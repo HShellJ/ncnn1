@@ -21,6 +21,10 @@ target_link_libraries(ncnn1 PRIVATE glslang)
 
 #找到OpenCV
 find_package(OpenCV REQUIRED)
+
+message(STATUS "OpenCV_INCLUDE_DIRS = ${OpenCV_INCLUDE_DIRS}")
+message(STATUS "OpenCV_LIBS         = ${OpenCV_LIBS}")
+
 target_include_directories(ncnn1 PRIVATE ${OpenCV_INCLUDE_DIRS})
 target_link_libraries(ncnn1 PRIVATE ${OpenCV_LIBS})
 
